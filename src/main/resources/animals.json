@@ -1,0 +1,22 @@
+{
+  "carnivores": [
+    {
+      "kind": "Lion",
+      "count" : 4
+    },
+    {
+      "kind": "Bear",
+      "count" : 2
+    }
+  ],
+  "herbivores": [
+    {
+      "kind": "Zebra",
+      "count" : 3
+    },
+    {
+      "kind": "Elephant",
+      "count" : 2
+    }
+  ]
+}
