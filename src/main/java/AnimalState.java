@@ -1,6 +1,11 @@
 public enum AnimalState {
 
-    // Возможные состояния животных
+    /**
+     * Возможные активности животных:
+     * CALM - спокойны
+     * SLEEP - спят
+     * MAKE_NOISE - шумят
+     */
     CALM,
 
     SLEEP,

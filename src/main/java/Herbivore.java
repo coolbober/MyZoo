@@ -1,5 +1,9 @@
 public class Herbivore extends Animal {
 
+    /**
+     * Описание реакции травоядных животных.
+     */
+
     //К травоядным пришел смотритель
     public void keepVisit() {
         setCurState(AnimalState.MAKE_NOISE);

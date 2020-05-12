@@ -1,6 +1,8 @@
-//Возможные события в окружающем мире
-
 import lombok.Getter;
+
+/**
+ * Возможные факторы воздействия.
+ */
 
 @Getter
 public enum Events {

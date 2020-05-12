@@ -1,5 +1,4 @@
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 public class TriggerTest {
 
@@ -10,20 +9,24 @@ public class TriggerTest {
     private AnimalType carnivore = AnimalType.CARNIVORE;
     private AnimalType herbivore = AnimalType.HERBIVORE;
 
-    @BeforeAll
-    static void init(){
-        zoo = new Zoo();
+    @BeforeEach
+    public void initNew(){ zoo = new Zoo();
         path = ZooTest.class.getClassLoader().getResource("animals.json").getPath();
         zoo.addAnimal(path);
-        trigger = new Trigger(zoo);
-    }
+        trigger = new Trigger(zoo);}
 
     @Test
     public void visit(){
         trigger.visit(herbivore);
-        System.out.println(zoo.getStateHerbivores());
-
+        Assertions.assertEquals(AnimalState.MAKE_NOISE, zoo.getStateHerbivores(), "Травоядные не шумят");
         trigger.visit(carnivore);
-        System.out.println(zoo.getStateCarnivores());
+        Assertions.assertEquals(AnimalState.MAKE_NOISE, zoo.getStateHerbivores(), "Травоядные не шумят");
+    }
+
+    @Test
+    public void morning(){
+        trigger.setMorning();
+        Assertions.assertEquals(AnimalState.CALM, zoo.getStateHerbivores(), "Травоядные не проснулись или шумели всю ночь");
+        Assertions.assertEquals(AnimalState.CALM, zoo.getStateHerbivores(), "Плотоядные не проснулись или шумели всю ночь");
     }
 }

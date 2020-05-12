@@ -1,10 +1,9 @@
-
-//Файл для трансформации json данных в Java
-
 import lombok.Getter;
-
 import java.util.List;
 
+/**
+ * Класс, для перевода данных из json
+ */
 @Getter
 public class DataAnimals {
 

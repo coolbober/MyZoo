@@ -1,5 +1,9 @@
 public class Carnivore extends Animal {
 
+    /**
+     * Класс, описывающий реакцию плотоядных на различные внешние воздействия.
+     */
+
     //Смотритель пришел к плотоядным
     public void keepVisit() {
         curState = AnimalState.MAKE_NOISE;

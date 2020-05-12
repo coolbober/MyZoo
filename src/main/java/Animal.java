@@ -1,24 +1,34 @@
 import lombok.*;
 
-import java.awt.*;
-
+/**
+ * Класс, описывающий общие признаки для животных
+ */
 @Getter
 @Setter
 abstract public class Animal {
 
-    // Вид плотоядного или хищника
+    /**
+     * kind - Вид плотоядного или хищника
+     * count - количество животных одного вида
+     * curState - текущая активность данного вида
+     */
     protected String kind;
-
-    //Количество такого животного
     protected int count;
-
-    //Текущая активность
     protected AnimalState curState;
 
     public Animal(){
         curState = AnimalState.CALM;
     }
 
+    /**
+     * Внешние воздействия на животных, из-за которых меняется поведение последних:
+     * keepVisit - визит смотрителя
+     * feeding - кормежка
+     * night - ночь
+     * morning - утро
+     * thunder - гром
+     * updateAnimalAction - обновление действия животного
+     */
     //Внешние действия, влияющие на поведение животных
     abstract public void keepVisit();
     abstract public void feeding();
@@ -27,6 +37,10 @@ abstract public class Animal {
     abstract public void thunder();
     abstract public void updateAnimalAction();
 
+    /**
+     * Установка действия, где
+     * @param event значение, введенное с клавиатуры.
+     */
     public void updateState(Events event){
         switch (event){
             case NIGHT:
@@ -52,10 +66,6 @@ abstract public class Animal {
             default:
                 System.out.println("Неизвестное состояние, попробуйте снова");
         }
-    }
-
-    public void printAboutAnimal(){
-        System.out.println(toString());
     }
 
     @Override
